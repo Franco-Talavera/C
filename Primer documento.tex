@@ -1,0 +1,239 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{kpfonts}
+\usepackage{fourier}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\chead[U.T.N FACULTAD REGIONAL HAEDO-QUÍMICA GENERAL]{U.T.N FACULTAD REGIONAL HAEDO-QUÍMICA GENERAL}
+\lfoot[TP N\textsuperscript{\underline{o}}4-Determinación de la entalp\'ia de vaporización del agua y tens\'ion superficial ]{TP N\textsuperscript{\underline{o}}4-Determinación de la entalp\'ia de vaporización del agua y tens\'ion superficial}
+\rfoot[\thepage]{\thepage}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\begin{document}
+  	   \thispagestyle{empty}
+   
+   \begin{titlepage}
+\centering
+{\includegraphics[width=0.5\textwidth]{../Imágenes/Capturas de pantalla/UTN HAEDO.jpg} \includegraphics[scale=1]{../Imágenes/Capturas de pantalla/MATERIAS BASICAS.jpg}  \par}
+\vspace{1cm}
+{\bfseries\LARGE LABORATORIO DE QUÍMICA GENERAL \par}
+\vspace{1cm}
+{\scshape\Large \includegraphics[scale=1]{../Imágenes/Capturas de pantalla/simbolo de quimica.png} \par}
+\vspace{3cm}
+{\scshape\Huge TRABAJO PRÁCTICO N°4  \par}
+\vspace{3cm}
+{\itshape\Large DETERMINACIÓN DE LA ENTALPÍA DE VAPORIZACIÓN DEL AGUA Y TENSIÓN SUPERFICIAL \par}
+\vfill
+{\Large Autores: \par}
+{\Large Roberto Guerrini-
+	Dario Nunez-
+	Franco Agustin Talavera \par}
+\vfill
+{\Large Agosto 2021 \par}
+\end{titlepage}
+   
+  
+
+
+\textbf{OBJETIVOS A ALCANZAR POR LOS ALUMNOS} 
+	\begin{enumerate}
+	\item Determinar la presión de vapor 
+	\item Calcular la entalpía de vaporización del agua, en el rango de temperatura de 40°C a 80°C, utilizando la ecuación de Clausius – Clapeyron. 
+	\item Fortalecer el concepto de presión de vapor de un líquido y su dependencia con la temperatura, a través de su determinación para el agua. 
+	\item Comprender los alcances y aplicaciones de las leyes de los gases ideales. 
+	\item Ejercitar la habilidad para representar mediciones experimentales y el tratamiento de datos mediante el uso de software de computadora. 
+	\end{enumerate} 
+	
+\textbf{FUNDAMENTOS} \\ \\
+
+El método consiste en medir el volumen de aire atrapado en una probeta invertida, en función de la temperatura que oscila entre 40 y 80°C, considerando que se encuentra saturado de vapor de agua.  \\ \\
+ 
+La presión de este volumen de aire es igual a la atmosférica (se desprecia la diferencia de altura entre la columna de agua dentro del tubo graduado y el nivel de agua del baño termostatizado).\\ \\
+ 
+El número de moles de aire es constante, pero no así el de vapor de agua que depende de la temperatura. El número de moles de aire se puede calcular despreciando el número de moles de vapor de agua a temperaturas menores a 5°C.  \\ \\
+
+Conocido el número de moles de aire, se puede calcular su presión a cada una de las temperaturas, tomando la medición del volumen del aire, y con el dato de la presión atmosférica se calcula la presión de vapor del agua a esas temperaturas aplicando la Ley de Dalton de las presiones parciales.  \\ \\
+
+ 
+ 
+
+\begin{list}{\gg}{\textbf{MATERIALES A EMPLEAR }}
+\item Agua destilada \\
+\item Baño termostático \\
+\item Termómetro de graduación mínima igual a O,1°C \\
+\item Probeta de 10 $cm^{3} $  \\
+\item Hielo \\
+
+\end{list}
+ 
+\textbf{DESARROLLO DEL TRABAJO PRÁCTICO} \\
+ 
+\textbf{Experiencia 1: DETERMINACIÓN DE LA ENTALPÍA DE VAPORIZACIÓN DEL AGUA}  \\
+ \begin{enumerate}
+ \item Disponer del baño termostático con la suficiente cantidad de agua a temperatura menor de 5°C (adicionar hielo si es necesario). Llenar la probeta graduada con 6 a 7 $cm^{3}$  de agua destilada, tapando con un dedo, introducir rápidamente en forma invertida y mantener la probeta totalmente sumergida. Debe quedar atrapado entre 4 a 5 $cm^{3}$  de aire dentro de la probeta. \\
+ \item Cuando la temperatura del baño se estabilice cercana a los 5°C, registrar el volumen del aire. \\
+ \item Medir el volumen con una apreciación mínima de 0,1 $cm^{3}$  y corregir la distorsión causada por el menisco en la probeta invertida. \\
+ \item Poner en marcha el termostato con un primer escalón aproximadamente a 40ºC, dejar al menos 2 o 3 minutos a esa temperatura hasta su estabilización y tomar el nuevo volumen del aire. \\
+ \item Verificar la temperatura con el termómetro auxiliar colocado en el seno del baño. \\
+ \item Volcar los datos en la tabla adjunta en el presente trabajo práctico. \\
+ \item Repetir la medición incrementando la temperatura del termostato cada 10°C, hasta 80°C. \\
+ \end{enumerate}
+	
+ 
+	
+ 
+	
+ 
+	
+ 
+
+ 
+	
+ 
+	
+ 
+\textbf{DESARROLLO DE CÁLCULOS} \\
+ \begin{enumerate}
+ \item Utilizando el volumen y temperatura inicial medidos en el paso 2 calcular el número de moles de aire atrapado aplicando la Ecuación de estado de un gas ideal, conociendo la presión atmosférica y suponiendo que a esa temperatura, 5°C, el número de moles de vapor de agua es despreciable con respecto al de aire. \\ $$n_{aire}=\frac{P_{atm} \cdot V_{aire}}{R \cdot T_{inicial}} $$
+ \item Para cada temperatura, calcular la presión parcial del aire aplicando la ley de las presiones parciales de Dalton. \\ $$P_{aire}=\frac{n_{aire} \cdot R \cdot T}{V} $$
+ \item Calcular la presión de vapor del agua a cada temperatura. \\ $$P_{agua}= P_{atm}-P_{aire}$$
+ \item Graficar el $\ln P_{agua} $  en función de $\frac{1}{T} $  en el rango de temperaturas de 40 a 80°C y dibujar la recta que mejor represente los valores experimentales. Utilizar una planilla de cálculo (Excel) y obtener la pendiente de la recta. También realizarlo en hoja milimetrada. \\
+ \item Utilizando la pendiente de la recta en el rango de temperaturas entre 40 a 80°C y utilizando la ecuación de Clausius – Clapeyron calcular el valor del $ \Delta H_{vap agua}  $ . \\
+ \end{enumerate}
+	
+ 
+	
+ 
+	
+ 
+  
+ 
+	
+ 
+ 
+	
+ 
+ 
+\begin{tabular}{||l||l||l||1||1||1||1||1||}
+\hline
+\hline
+T(°C) & T(K) & {$ \frac{1}{T} \cdot k^{-1} \cdot 10^{-3}$ } & $V(cm^{3}$ & $V_{Corregido}$ & $P_{aire}(mmHg)$ &  $P_{agua}(mmHg)$ & $\ln P_{agua}$\\
+\hline
+\hline
+20 &	293 & 	0,00341 	& 4 &	3,8 &	733,943 &	22,057 &	3,09363   \\
+\hline
+\hline
+30 &	303 &	0,00330 &	4,2 &	4 &	 721,049 &	34,95 &	 3,5539 \\
+\hline
+\hline
+40 &	313 &	0,00319 &	 4,5 &	4,3 &	 692,881 &	63,119 &	 4,1450 \\
+\hline
+\hline
+50 &	323 &	0,00310 &	4,8 &	4,6 &	668,386 &	 87,613 &	4,4729  \\
+\hline
+\hline
+60 &	333 &	0,00300 &	 5,2 &	5 &	633,952 &	122,047 &	4,8044 \\
+\hline
+\hline
+70 &	343 &	0,00292 &	 6 &	 5,8 &	 562,922 &	193,077 &	 5,2631 \\
+\hline
+\hline
+80 &	353 &	0,00283 &	 8,2 &	8 &	420,017 &	335,983	& 5,8171 \\
+\hline
+\hline
+\end{tabular}
+ 
+\\ \medskip Valor bibliográfico del   $ \Delta H_{vap agua}= 40.8 \frac{Kj}{mol} $ \\
+ 
+ \\ \medskip
+\textbf{Experiencia 2: TENSIÓN SUPERFICIAL } \\ 
+  
+Disponer sobre una superficie plana de vidrio una capa de agua muy delgada y extendida, y dejar caer sobre el centro de la misma unas gotas de etanol. \\
+Se observa que: aparece una interfase entre el etanol y el agua (note que esto no ocurre cuando ambos líquidos se mezclan en condiciones en que la relación área/volumen es despreciable, como por ejemplo en un vaso de precipitado). \\ \\  
+En la interfase las moléculas de agua superficiales tiran hacia el interior de la fase agua (hacia la periferia) con mayor fuerza que las de etanol hacia el interior de la fase etanol (hacia el centro), con el resultado de que estas últimas son arrastradas hacia afuera y el centro se seca. \\
+ 
+\textbf{PRESENTACIÓN DE LOS RESULTADOS} \\
+ 
+ 
+\textbf{ASPECTOS EXPERIMENTALES } \\
+
+Presente todos los cálculos de la experiencia N\textsuperscript{\underline{o}}, y los gráficos correspondientes, tanto en Excel como en hoja milimetrada. \\
+
+Describa las conclusiones de las diferentes experiencias realizadas en el tp. \\ \\
+
+ \begin{center}
+ 
+
+ \includegraphics[scale=1]{../Imágenes/Capturas de pantalla/foto1.jpg} \\
+ \includegraphics[scale=1]{../Imágenes/Capturas de pantalla/foto2.jpg}\\ 
+ \includegraphics[scale=1]{../Imágenes/Capturas de pantalla/foto3.jpg}\\ 
+ \includegraphics[scale=1]{../Imágenes/Capturas de pantalla/foto4.jpg}\\ 
+ \end{center}
+ 
+4)\begin{figure}[hbtp]
+  \caption{Gráfico en excel}
+  \centering
+  \includegraphics[scale=1]{../Imágenes/Capturas de pantalla/grafico1.png}
+  \end{figure}
+  \\
+\begin{figure}[hbtp]
+  \caption{Gráfico en hoja milimetrada}
+  \centering
+  \includegraphics[scale=1.65]{../Imágenes/Digitalizaciones/Escáner_20210815 (2).jpg}
+  \end{figure}
+ \\
+
+5) Desarrollando:
+\begin{equation}
+\begin{split}
+P_{agua} & = A \cdot e^{\frac{-ΔHv}{R \cdot T}}\\
+\ln P_{agua} & = \ln (A*e^{\frac{-ΔHv}{R \cdot T}}  ) \\
+\ln P_{agua} & = \ln A+\ln(e^{\frac{-ΔHv}{R \cdot T}}) \\
+\ln P_{agua}&=\frac{-ΔHv}{R \cdot T}\cdot \ln e + \ln A \\
+\ln P_{agua}&=\frac{-ΔHv}{R} \cdot \frac{1}{T}+Cte  \\
+\ln P_{agua}&= m \cdot \frac{1}{T}+ Cte  
+\end{equation}
+\end{split}
+
+
+\\ Como hay una proporcionalidad entre los dos valores graficados, podemos hacer lo siguiente:
+
+\begin{eqnarray} \nonumber
+  $$ m=-4577.4 \, \Rightarrow \, \frac{-ΔHv}{R}= -4577.4  \, \Rightarrow \, -ΔHv=-4577.4 \cdot R \, \Rightarrow \, ΔHv=4577.4 \cdot 0.008314 \, = \, $$ 
+\setlength{\fboxrule}{0.5mm}
+\setlength{\fboxsep}{1mm}
+\framebox[1.6cm][l]{$38.06 \frac{KJ}{mol}$}
+\end{eqnarray} 
+
+ERROR RELATIVO: $6.74 \%$ \\ 
+
+\\La pendiente tiene ese valor tan grande por las diferencias de ordenes de magnitud entre los valores graficados.
+\\ \\
+
+{\bf Conclusiones:} \\ \medskip
+
+
+Exp1: El error relativo en el cálculo de la entalpia se produce por múltiples factores, pero vemos que no se aleja demasiado del valor teórico. Por lo tanto, podemos observar cómo se cumple la ecuación de Clausius – Clapeyron. Además, pusimos en práctica las leyes de los gases ideales que ya conocíamos. \\ \medskip
+
+Exp2: Entendemos a la Tensión Superficial actuante, como al resultado de atracción intermolecular desde todas las direcciones, que afecta especialmente a la superficie del líquido hacia el interior. La atracción tiende a atraer la ''capa'' superficial del líquido hacia el centro. Como sabemos, toda fuerza que mantiene unido a un fluido es una fuerza de cohesión, y en este caso estamos hablando de fuerzas intermoleculares pertenecientes a un líquido, lo que aplica a la circunstancia. 
+El etanol, por su parte, tiene una tensión superficial menor que la del agua por separado, pero el mismo resulta ser solvente en agua. Por lo que, en cuanto entran en contacto, la solución etanol-agua se reordena de manera que las fuerzas de cohesión internas (y de la superficie) estén equilibradas. En el estado de menor energía (en el que se minimizan las fuerzas intermoleculares).
+
+
+
+
+
+
+
+\end{document}
