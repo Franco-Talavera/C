@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora Solar</title>
+<style>
+body{margin:0;padding:20px;font-family:"Segoe UI",Tahoma,sans-serif;background:#f7f7f9;display:flex;justify-content:center}
+.wrapper{max-width:900px;width:100%}
+.card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);padding:20px;margin-bottom:20px}
+#inputs .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+label{display:flex;flex-direction:column;font-weight:600;font-size:14px;color:#333}
+input{margin-top:4px;padding:6px;border:1px solid #ccc;border-radius:4px}
+button.calc-btn{margin-top:20px;padding:10px 20px;background:#007BFF;color:#fff;border:none;border-radius:4px;font-size:16px;cursor:pointer}
+button.calc-btn:hover{background:#0056b3}
+#result{line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="card">
+<h1>Calculadora de Sistema Solar</h1>
+<div id="inputs" class="fields">
+<label>Consumo diario (Wh)<input id="consumo" type="number" value="0"></label>
+<label>Eficiencia baterías (%)<input id="eff_bat" type="number" value="90"></label>
+<label>Eficiencia inversor (%)<input id="eff_inv" type="number" value="93"></label>
+<label>Factor seguridad consumo (%)<input id="safety" type="number" value="100"></label>
+<label>Eficiencia regulador (%)<input id="eff_reg" type="number" value="97"></label>
+<label>Días de autonomía<input id="dias" type="number" value="1"></label>
+<label>DoD (%)<input id="dod" type="number" value="50"></label>
+<label>Voltaje banco baterías (V)<input id="vbat" type="number" value="12"></label>
+<label>Capacidad de la batería (Ah)<input id="capbat" type="number" value="100"></label>
+<label>HSP (h)<input id="hsp" type="number" value="5"></label>
+<label>Wp del panel (W)<input id="wp" type="number" value="300"></label>
+<label>Rendimiento panel (%)<input id="panel_eff" type="number" value="90"></label>
+<label>Voc del panel (V)<input id="voc" type="number" value="40"></label>
+<label>Isc del panel (A)<input id="isc" type="number" value="9"></label>
+<label>Coeficiente temperatura Voc (% extra)<input id="coef" type="number" value="10"></label>
+<label>Potencia continua simultánea mínima (W)<input id="pcont" type="number" value="0"></label>
+<label>Potencia pico simultánea (W)<input id="ppico" type="number" value="0"></label>
+<label>Potencia del cargador de baterías (W)<input id="pcarg" type="number" value="0"></label>
+<label>Horas de carga del cargador (h)<input id="hcarg" type="number" value="0"></label>
+<label>Eficiencia del cargador (%)<input id="eff_carg" type="number" value="88"></label>
+<label>Número de paneles en serie<input id="nserie" type="number" value="1"></label>
+<label>Número de paneles instalados<input id="ninst" type="number" value="1"></label>
+</div>
+<button class="calc-btn" onclick="calc()">Calcular</button>
+</div>
+<div class="card">
+<h2>Resultados</h2>
+<div id="result"></div>
+</div>
+</div>
+<script>
+function calc(){
+const consumo = +document.getElementById('consumo').value;
+const eff_bat = +document.getElementById('eff_bat').value/100;
+const eff_inv = +document.getElementById('eff_inv').value/100;
+const safety = +document.getElementById('safety').value/100;
+const eff_reg = +document.getElementById('eff_reg').value/100;
+const dias = +document.getElementById('dias').value;
+const dod = +document.getElementById('dod').value/100;
+const vbat = +document.getElementById('vbat').value;
+const capbat = +document.getElementById('capbat').value;
+const hsp = +document.getElementById('hsp').value;
+const wp = +document.getElementById('wp').value;
+const panel_eff = +document.getElementById('panel_eff').value/100;
+const voc = +document.getElementById('voc').value;
+const isc = +document.getElementById('isc').value;
+const coef = +document.getElementById('coef').value/100;
+const pcont = +document.getElementById('pcont').value;
+const ppico = +document.getElementById('ppico').value;
+const pcarg = +document.getElementById('pcarg').value;
+const hcarg = +document.getElementById('hcarg').value;
+const eff_carg = +document.getElementById('eff_carg').value/100;
+const nserie = +document.getElementById('nserie').value;
+const ninst = +document.getElementById('ninst').value;
+
+const E_real = consumo/(eff_bat*eff_inv*safety*eff_reg);
+const E_panel = wp*hsp*panel_eff;
+const N_panels = E_real/E_panel;
+const N_parallel = N_panels/nserie;
+const P_total = wp*nserie*N_parallel;
+const CapAh = (E_real*dias)/(dod*vbat);
+const N_bat_par = CapAh/capbat;
+const Voc_max = nserie*voc*(1+coef);
+const Isc_max = N_parallel*isc;
+const P_inv_cont = pcont*1.25;
+const E_cargador = pcarg*hcarg*eff_carg;
+const E_grupo = ninst*E_panel;
+const E_total = E_cargador + E_grupo;
+
+document.getElementById('result').innerHTML = `
+Energía real: ${E_real.toFixed(2)} Wh<br>
+Energía por panel: ${E_panel.toFixed(2)} Wh<br>
+Número de paneles calculado: ${N_panels.toFixed(2)}<br>
+Paneles en paralelo: ${N_parallel.toFixed(2)}<br>
+Potencia FV total: ${P_total.toFixed(2)} Wp<br>
+Capacidad necesaria: ${CapAh.toFixed(2)} Ah<br>
+Baterías en paralelo: ${N_bat_par.toFixed(2)}<br>
+Voc máximo: ${Voc_max.toFixed(2)} V<br>
+Isc máximo: ${Isc_max.toFixed(2)} A<br>
+Potencia continua mínima del inversor: ${P_inv_cont.toFixed(2)} W<br>
+Potencia pico del inversor: ${ppico.toFixed(2)} W<br>
+Energía del cargador: ${E_cargador.toFixed(2)} Wh<br>
+Energía del grupo FV instalado: ${E_grupo.toFixed(2)} Wh<br>
+Energía total diaria: ${E_total.toFixed(2)} Wh`;
+}
+</script>
+</body>
+</html>
